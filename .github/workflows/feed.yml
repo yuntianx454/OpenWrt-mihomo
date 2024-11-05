@@ -83,7 +83,7 @@ jobs:
       - name: Prepare
         run: |
           for file in mihomo_*.tar.gz; do tar -x -z -f "$file"; done
-          for file in public/SNAPSHOT/*; do ln -s "$file" "$(basename "$file")"; done
+          cd public; for file in SNAPSHOT/*; do ln -s "$file" "$(basename "$file")"; done
 
       - name: Feed
         uses: peaceiris/actions-gh-pages@v4
